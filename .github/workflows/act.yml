@@ -20,4 +20,4 @@ jobs:
             echo "Last updated: $(TZ='Asia/Kuching' date)" > timestamp.txt
             git add timestamp.txt
             git commit -m "Update timestamp: $(TZ='Asia/Kuching' date)" || exit 0
-            git push origin master
+            git push origin main
