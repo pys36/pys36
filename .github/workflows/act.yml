@@ -13,11 +13,11 @@ jobs:
         uses: actions/checkout@master
         with:
           fetch-depth: 1
-      - name: Commit and push if it is changed
+      - name: Update timestamp file
         run: |
-          git config user.name "Pang YS"
-          git config user.email "devbx@proton.me"
-          git add -A
-          timestamp=$(TZ="Asia/Kuching" date)
-          git commit -m "Last Commit: ${timestamp}(TW)" || exit 0
-          git push origin master
+            git config user.name "Pang YS"
+            git config user.email "devbx@proton.me"
+            echo "Last updated: $(TZ='Asia/Kuching' date)" > timestamp.txt
+            git add timestamp.txt
+            git commit -m "Update timestamp: $(TZ='Asia/Kuching' date)" || exit 0
+            git push origin master
