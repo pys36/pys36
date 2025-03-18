@@ -2,7 +2,7 @@ name: idk
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/3 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,6 @@ jobs:
           fetch-depth: 1
       - name: Commit and push if it is changed
         run: |
-          rm *.csv *.json
           git config user.name "Pang YS"
           git config user.email "devbx@proton.me"
           git add -A
